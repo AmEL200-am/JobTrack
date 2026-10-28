@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobTrack | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="app-layout">
+
+        <aside class="sidebar">
+            <a href="#" class="brand">
+                <span class="brand-icon">J</span>
+                <span>JobTrack</span>
+            </a>
+
+            <p class="sidebar-label">MENU PRINCIPAL</p>
+
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-link active">
+                    <span>▦</span> Tableau de bord
+                </a>
+                <a href="#add-application" class="nav-link">
+                    <span>＋</span> Ajouter une candidature
+                </a>
+                <a href="#my-applications" class="nav-link">
+                    <span>▤</span> Mes candidatures
+                </a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="sidebar-help-icon">?</div>
+                <p>Gardez le cap sur vos objectifs professionnels.</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">ESPACE PERSONNEL</p>
+                    <h1>Tableau de bord</h1>
+                </div>
+
+                <a href="#add-application" class="topbar-button">
+                    + Nouvelle candidature
+                </a>
+            </header>
+
+            <section id="dashboard" class="welcome-section">
+                <div>
+                    <p class="welcome-tag">VOTRE RECHERCHE DE STAGE</p>
+                    <h2>Organisez votre avenir.</h2>
+                    <p>Suivez vos candidatures et gardez une vue claire sur votre progression.</p>
+                </div>
+                <div class="welcome-decoration" aria-hidden="true">✦</div>
+            </section>
+
+            <section class="dashboard">
+                <article class="stat-card stat-total">
+                    <div class="stat-top">
+                        <span class="stat-icon">▤</span>
+                        <span class="stat-label">Au total</span>
+                    </div>
+                    <p id="totalApplications" class="stat-number">0</p>
+                    <p class="stat-description">Candidatures enregistrées</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-icon icon-blue">↗</span>
+                        <span class="stat-label">Envoyées</span>
+                    </div>
+                    <p id="pendingApplications" class="stat-number">0</p>
+                    <p class="stat-description">Dossiers transmis</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-icon icon-orange">◷</span>
+                        <span class="stat-label">Entretiens</span>
+                    </div>
+                    <p id="interviewApplications" class="stat-number">0</p>
+                    <p class="stat-description">Occasions à préparer</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-icon icon-green">✓</span>
+                        <span class="stat-label">Acceptées</span>
+                    </div>
+                    <p id="acceptedApplications" class="stat-number">0</p>
+                    <p class="stat-description">Résultats positifs</p>
+                </article>
+            </section>
+
+            <section id="add-application" class="content-panel">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">NOUVELLE OPPORTUNITÉ</p>
+                        <h2>Ajouter une candidature</h2>
+                    </div>
+                    <span class="heading-number">01</span>
+                </div>
+
+                <form id="applicationForm">
+                    <div class="form-group">
+                        <label for="company">Entreprise <span>*</span></label>
+                        <input type="text" id="company"
+                            placeholder="Ex. : Capgemini" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="position">Poste recherché <span>*</span></label>
+                        <input type="text" id="position"
+                            placeholder="Ex. : Stagiaire développeuse web" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="applicationDate">Date de candidature <span>*</span></label>
+                        <input type="date" id="applicationDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status">Statut <span>*</span></label>
+                        <select id="status" required>
+                            <option value="À envoyer">À envoyer</option>
+                            <option value="Envoyée">Envoyée</option>
+                            <option value="Entretien">Entretien</option>
+                            <option value="Acceptée">Acceptée</option>
+                            <option value="Refusée">Refusée</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="offerLink">Lien de l'offre <span class="optional">(facultatif)</span></label>
+                        <input type="url" id="offerLink"
+                            placeholder="https://...">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="secondary-button">Effacer</button>
+                        <button type="submit" class="primary-button">
+                            Ajouter la candidature <span>→</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="my-applications" class="content-panel">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">VOTRE SUIVI</p>
+                        <h2>Mes candidatures</h2>
+                        <p class="section-subtitle">Retrouvez et gérez toutes vos opportunités.</p>
+                    </div>
+                    <span class="heading-number">02</span>
+                </div>
+
+                <div class="filters">
+                    <div class="search-box">
+                        <span>⌕</span>
+                        <input type="search" id="searchInput"
+                            placeholder="Rechercher une entreprise ou un poste...">
+                    </div>
+
+                    <select id="filterStatus" aria-label="Filtrer par statut">
+                        <option value="Tous">Tous les statuts</option>
+                        <option value="À envoyer">À envoyer</option>
+                        <option value="Envoyée">Envoyée</option>
+                        <option value="Entretien">Entretien</option>
+                        <option value="Acceptée">Acceptée</option>
+                        <option value="Refusée">Refusée</option>
+                    </select>
+                </div>
+
+                <div id="applicationsList">
+                    <p class="empty-message">Aucune candidature pour le moment.</p>
+                </div>
+            </section>
+
+            <footer class="footer">
+                <span>JobTrack © 2026</span>
+                <span>Chaque candidature est un pas en avant.</span>
+            </footer>
+
+        </main>
+    </div>
+
+</body>
+</html>
